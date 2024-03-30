@@ -1,22 +1,29 @@
-import { AppBar, InputBase, Toolbar, Typography,styled, colors, Box, Grid , Badge , Avatar, Stack} from '@mui/material'
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MailIcon from '@mui/icons-material/Mail';
-import React, { useState } from 'react'
-import BeachAccessIcon from '@mui/icons-material/BeachAccess'
-
+import { Mail, Notifications, Pets } from "@mui/icons-material";
+import {
+  AppBar,
+  Avatar,
+  Badge,
+  Box,
+  InputBase,
+  Menu,
+  MenuItem,
+  styled,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
-  display:'flex',
-  justifyContent:"space-between"
+  display: "flex",
+  justifyContent: "space-between",
 });
 
-const Search = styled("div")(({theme}) => ({
+const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
-  padding:"0 10px",
+  padding: "0 10px",
   borderRadius: theme.shape.borderRadius,
-  width: "40%"
+  width: "40%",
 }));
- 
 
 const Icons = styled(Box)(({ theme }) => ({
   display: "none",
@@ -24,52 +31,51 @@ const Icons = styled(Box)(({ theme }) => ({
   gap: "20px",
   [theme.breakpoints.up("sm")]: {
     display: "flex",
-  }
+  },
 }));
+
 const UserBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems :'center',
-  gap: ' 10px ',
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
   [theme.breakpoints.up("sm")]: {
-    display: "none"
-},
+    display: "none",
+  },
 }));
-
-
 const Navbar = () => {
-  const [open , setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
-     <AppBar position='sticky'>
+    <AppBar position="sticky">
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          LIFE LITE
+          Lite Life
         </Typography>
-        <BeachAccessIcon sx={{ display: { xs: "block", sm: "none" } }} />
+        <Pets sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
         <Icons>
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <Mail />
           </Badge>
           <Badge badgeContent={2} color="error">
-            <NotificationsIcon />
+            <Notifications />
           </Badge>
           <Avatar
             sx={{ width: 30, height: 30 }}
-            src="https://img.freepik.com/free-photo/inspired-brown-haired-woman-summer-dress-laughing-with-eyes-closed-portrait-refined-latin-girl-chilling_197531-9825.jpg?size=626&ext=jpg"
-          
+            src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            onClick={(e) => setOpen(true)}
           />
         </Icons>
         <UserBox onClick={(e) => setOpen(true)}>
           <Avatar
             sx={{ width: 30, height: 30 }}
-            src="https://img.freepik.com/free-photo/inspired-brown-haired-woman-summer-dress-laughing-with-eyes-closed-portrait-refined-latin-girl-chilling_197531-9825.jpg?size=626&ext=jpg"
+            src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
-          <Typography variant="span"> Zarah </Typography>
+          <Typography variant="span">John</Typography>
         </UserBox>
       </StyledToolbar>
-      {/* <Menu
+      <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
@@ -86,14 +92,9 @@ const Navbar = () => {
         <MenuItem>Profile</MenuItem>
         <MenuItem>My account</MenuItem>
         <MenuItem>Logout</MenuItem>
-      </Menu> */}
+      </Menu>
     </AppBar>
   );
 };
 
 export default Navbar;
-   
-
-
-     
-    

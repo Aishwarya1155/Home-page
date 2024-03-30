@@ -1,17 +1,3 @@
-// import { Box } from '@mui/material'
-// import React from 'react'
-
-// const Feed = () => {
-//   return (
-//     <Box bgcolor={'green'} flex={4} p={2}>
-//       Feed
-//     </Box>
-//   )
-// }
-
-// export default Feed
-
-
 import { Box, Stack, Skeleton } from "@mui/material";
 import React, { useState } from "react";
 import Post from "./Post";

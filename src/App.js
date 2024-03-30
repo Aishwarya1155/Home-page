@@ -25,7 +25,7 @@ function App() {
         </Stack>
         <Add />
       </Box>
-    </ThemeProvider>
+    </ThemeProvider>  
   );
 }
 
